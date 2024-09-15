@@ -1,0 +1,35 @@
+ import java.io.File ;
+import java.io.IOException;
+class Demo1
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("main starts");
+		File f1 = new File("G:/data/info.text");
+		try
+		{
+			f1.createNewFile();//danger statement,clue given by the compiler,danger statement will generate IOException
+			System.out.println("file will be created successfully");
+
+		}
+		catch (IOException e1 )
+		{
+			System.out.println(" given path does not have enough space...file will be created in emergency E drive");
+			try
+			{
+				f1 = new File("E:/sos/info.text");
+				f1.createNewFile();
+			}
+			catch (IOException e2)
+			{
+				System.out.println("emergency drive is also...opps program will be terminated");
+				System.out.println("main ends");
+
+			}
+
+		}
+		    	System.out.println("main ends");
+
+		
+	}
+}
